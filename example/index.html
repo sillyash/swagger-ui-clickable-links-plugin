@@ -4,19 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swagger UI Clickable Links Plugin Demo</title>
-    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css" >
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css"
+    />
   </head>
   <body>
     <div id="swagger-ui"></div>
-    
+
     <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
     <!-- TODO : Add plugin URL once released -->
     <!-- script src="https://unpkg.com/swagger-ui-clickable-links-plugin"></script -->
 
     <script type="text/javascript">
-      const OpenAPISpecUrl = "spec.json";
+      const OpenAPISpecUrl = 'spec.json';
 
-      window.onload = function() {
+      window.onload = function () {
         SwaggerUIBundle({
           deepLinking: true,
           dom_id: '#swagger-ui',
@@ -25,7 +29,7 @@
           url: OpenAPISpecUrl,
           plugins: [
             //SwaggerUIClickableLinksPlugin
-          ]
+          ],
         });
       };
     </script>
