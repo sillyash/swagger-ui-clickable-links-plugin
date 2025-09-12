@@ -47,5 +47,19 @@ export default {
       babelHelpers: 'bundled',
       exclude: 'node_modules/**',
     }),
+    // Custom plugin to create index.d.ts
+    {
+      name: 'create-index-dts',
+      generateBundle() {
+        this.emitFile({
+          type: 'asset',
+          fileName: 'index.d.ts',
+          source: `import ClickableLinksPlugin from './plugin';
+export default ClickableLinksPlugin;
+export * from './utils';
+`,
+        });
+      },
+    },
   ],
 };

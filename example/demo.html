@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Swagger UI Clickable Links Plugin - Demo</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+        line-height: 1.6;
+      }
+      .demo-section {
+        margin: 30px 0;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background: #f9f9f9;
+      }
+      .code-block {
+        background: #f4f4f4;
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-family: 'Courier New', monospace;
+        margin: 15px 0;
+      }
+      .links-demo {
+        background: #fff;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        margin: 10px 0;
+      }
+      h1 {
+        color: #333;
+      }
+      h2 {
+        color: #555;
+      }
+      .success {
+        color: #28a745;
+      }
+      .info {
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>🔗 Swagger UI Clickable Links Plugin</h1>
+
+    <div class="demo-section">
+      <h2>✅ Package Structure Complete</h2>
+      <p>This npm package follows all standard conventions:</p>
+      <ul>
+        <li>
+          <strong>/dist/</strong> - Built files (index.js, index.mjs,
+          index.umd.js, index.d.ts)
+        </li>
+        <li><strong>/src/</strong> - TypeScript source code with components</li>
+        <li><strong>/example/</strong> - Example implementation</li>
+        <li><strong>package.json</strong> - Proper npm metadata and scripts</li>
+        <li><strong>tsconfig.json</strong> - TypeScript configuration</li>
+        <li><strong>rollup.config.js</strong> - Build configuration</li>
+        <li><strong>babel.config.js</strong> - Babel configuration</li>
+        <li><strong>prettier.config.js</strong> - Code formatting</li>
+        <li><strong>.gitignore</strong> - Proper exclusions</li>
+      </ul>
+    </div>
+
+    <div class="demo-section">
+      <h2>📦 Installation</h2>
+      <div class="code-block">
+        npm install swagger-ui-clickable-links-plugin
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>🚀 Usage Example</h2>
+      <div class="code-block">
+        import SwaggerUI from 'swagger-ui' import ClickableLinksPlugin from
+        'swagger-ui-clickable-links-plugin' SwaggerUI({ dom_id: '#swagger-ui',
+        url: 'https://petstore.swagger.io/v2/swagger.json', plugins: [
+        SwaggerUI.plugins.DownloadUrl, ClickableLinksPlugin ] })
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>🔗 Plugin Functionality Demo</h2>
+      <p>
+        The plugin automatically detects URLs in API descriptions and makes them
+        clickable:
+      </p>
+
+      <div class="links-demo">
+        <h3>Before (plain text):</h3>
+        <p>
+          Visit https://swagger.io for more information or check our GitHub at
+          https://github.com/example/api
+        </p>
+      </div>
+
+      <div class="links-demo">
+        <h3>After (with plugin):</h3>
+        <p>
+          Visit
+          <a
+            href="https://swagger.io"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #0969da; text-decoration: underline"
+            >https://swagger.io</a
+          >
+          for more information or check our GitHub at
+          <a
+            href="https://github.com/example/api"
+            target="_blank"
+            rel="noopener noreferrer"
+            style="color: #0969da; text-decoration: underline"
+            >https://github.com/example/api</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2>✨ Features</h2>
+      <ul>
+        <li>
+          <span class="success">✓</span> Automatically detects URLs in
+          descriptions and examples
+        </li>
+        <li>
+          <span class="success">✓</span> Makes URLs clickable with proper
+          target="_blank"
+        </li>
+        <li>
+          <span class="success">✓</span> Adds security attributes (rel="noopener
+          noreferrer")
+        </li>
+        <li>
+          <span class="success">✓</span> Seamlessly integrates with existing
+          Swagger UI
+        </li>
+        <li><span class="success">✓</span> Full TypeScript support</li>
+        <li>
+          <span class="success">✓</span> Multiple build formats (CommonJS, ESM,
+          UMD)
+        </li>
+      </ul>
+    </div>
+
+    <div class="demo-section">
+      <h2>🛠 Build Scripts</h2>
+      <div class="code-block">
+        npm run build # Build the project npm run dev # Development mode with
+        watching npm run lint # Check code formatting npm run format # Format
+        code with Prettier
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h2 class="info">📋 Package Validation</h2>
+      <p>This package structure meets all standard npm conventions:</p>
+      <ul>
+        <li>
+          <span class="success">✓</span> Proper package.json with main, module,
+          types, and unpkg fields
+        </li>
+        <li><span class="success">✓</span> TypeScript declarations included</li>
+        <li>
+          <span class="success">✓</span> Multiple output formats for different
+          environments
+        </li>
+        <li><span class="success">✓</span> Source maps for debugging</li>
+        <li>
+          <span class="success">✓</span> Peer dependencies properly specified
+        </li>
+        <li>
+          <span class="success">✓</span> Build and development scripts
+          configured
+        </li>
+        <li>
+          <span class="success">✓</span> Code formatting and linting setup
+        </li>
+        <li><span class="success">✓</span> Example implementation provided</li>
+      </ul>
+    </div>
+  </body>
+</html>

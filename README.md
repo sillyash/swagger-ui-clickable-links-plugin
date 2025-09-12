@@ -20,17 +20,14 @@ npm install swagger-ui-clickable-links-plugin
 ### With Swagger UI Bundle
 
 ```javascript
-import SwaggerUI from 'swagger-ui'
-import ClickableLinksPlugin from 'swagger-ui-clickable-links-plugin'
+import SwaggerUI from 'swagger-ui';
+import ClickableLinksPlugin from 'swagger-ui-clickable-links-plugin';
 
 SwaggerUI({
   dom_id: '#swagger-ui',
   url: 'https://petstore.swagger.io/v2/swagger.json',
-  plugins: [
-    SwaggerUI.plugins.DownloadUrl,
-    ClickableLinksPlugin
-  ]
-})
+  plugins: [SwaggerUI.plugins.DownloadUrl, ClickableLinksPlugin],
+});
 ```
 
 ### With CDN
@@ -40,14 +37,14 @@ SwaggerUI({
 <script src="https://unpkg.com/swagger-ui-clickable-links-plugin@1.0.0/dist/index.umd.js"></script>
 
 <script>
-SwaggerUIBundle({
-  dom_id: '#swagger-ui',
-  url: 'https://petstore.swagger.io/v2/swagger.json',
-  plugins: [
-    SwaggerUIBundle.plugins.DownloadUrl,
-    SwaggerUIClickableLinksPlugin.default
-  ]
-})
+  SwaggerUIBundle({
+    dom_id: '#swagger-ui',
+    url: 'https://petstore.swagger.io/v2/swagger.json',
+    plugins: [
+      SwaggerUIBundle.plugins.DownloadUrl,
+      SwaggerUIClickableLinksPlugin.default,
+    ],
+  });
 </script>
 ```
 
