@@ -22,14 +22,14 @@ jobs:
           
       # Ensure npm 11.5.1 or later for trusted publishing
       - name: Install npm
-      - run: npm install -g npm@latest
+        run: npm install -g npm@latest
 
       # Use a read-only token for installing dependencies
-      - name: Build
-      - run: npm ci
+      - name: Install dependencies
+        run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_READ_TOKEN }}
       
       # Publish uses OIDC - no token needed
-      - name: Build
-      - run: npm publish
+      - name: Publish
+        run: npm publish
