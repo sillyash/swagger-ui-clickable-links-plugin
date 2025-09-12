@@ -1,4 +1,4 @@
-# swagger-ui-clickable-links-plugin
+# swagger-ui-clickable-links
 
 A Swagger UI plugin that automatically makes URLs in descriptions and examples clickable.
 
@@ -12,7 +12,7 @@ A Swagger UI plugin that automatically makes URLs in descriptions and examples c
 ## Installation
 
 ```bash
-npm install swagger-ui-clickable-links-plugin
+npm install swagger-ui-clickable-links
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install swagger-ui-clickable-links-plugin
 
 ```javascript
 import SwaggerUI from 'swagger-ui';
-import ClickableLinksPlugin from 'swagger-ui-clickable-links-plugin';
+import ClickableLinksPlugin from 'swagger-ui-clickable-links';
 
 SwaggerUI({
   dom_id: '#swagger-ui',
@@ -34,7 +34,7 @@ SwaggerUI({
 
 ```html
 <script src="https://unpkg.com/swagger-ui-dist@5.10.0/swagger-ui-bundle.js"></script>
-<script src="https://unpkg.com/swagger-ui-clickable-links-plugin@1.0.0/dist/index.umd.js"></script>
+<script src="https://unpkg.com/swagger-ui-clickable-links@1.0.0/dist/index.umd.js"></script>
 
 <script>
   SwaggerUIBundle({
