@@ -42,7 +42,7 @@ SwaggerUI({
     url: 'https://petstore.swagger.io/v2/swagger.json',
     plugins: [
       SwaggerUIBundle.plugins.DownloadUrl,
-      SwaggerUIClickableLinksPlugin.default,
+      SwaggerUIClickableLinks.default,
     ],
   });
 </script>

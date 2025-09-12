@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import typescript from '@rollup/plugin-typescript';
 import babel from '@rollup/plugin-babel';
+import replace from '@rollup/plugin-replace';
 import { readFileSync } from 'fs';
 
 const pkg = JSON.parse(readFileSync('./package.json', 'utf8'));
@@ -23,7 +24,7 @@ export default {
     {
       file: pkg.unpkg,
       format: 'umd',
-      name: 'SwaggerUIClickableLinksPlugin',
+      name: 'SwaggerUIClickableLinks',
       sourcemap: true,
       globals: {
         react: 'React',
