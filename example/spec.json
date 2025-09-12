@@ -1,0 +1,81 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+      "title": "Clickable Links Demo API",
+      "version": "0.1",
+      "description": "This API demonstrates clickable links functionality."
+  },
+  "servers": [{
+      "url": "http://localhost:8000/api/",
+      "description": "Production server"
+  }],
+  "paths": {
+    "/users.json": {
+      "get": {
+        "summary": "Get users",
+        "description": "Retrieves a list of users.",
+        "responses": {
+          "200": {
+            "description": "Successful response with user data.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": { "type": "integer" },
+                      "name": { "type": "string" },
+                      "email": { "type": "string" },
+                      "website": {
+                        "type": "string",
+                        "description": "User's website URL like https://johndoe.com",
+                        "format": "uri"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "example": [
+              {
+                "id": 1,
+                "name": "John Doe",
+                "email": "john@example.com",
+                "website": "https://johndoe.com"
+              },
+              {
+                "id": 2,
+                "name": "Jane Smith",
+                "email": "jane@example.com",
+                "website": "https://janesmith.dev"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "/posts.json": {
+      "get": {
+        "summary": "Get blog posts",
+        "description": "Fetches blog posts. Each post may contain URLs to external resources.",
+        "responses": {
+          "200": {
+            "description": "Array of blog posts",
+            "content": {
+              "application/json": {
+                "example": [{
+                  "id": 1,
+                  "userId": 1,
+                  "title": "Promo",
+                  "content": "Check out our website at https://docs.example.com and follow us on https://x.com/example",
+                  "url": "https://blog.example.com/"
+                }]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
