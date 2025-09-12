@@ -12,12 +12,12 @@
     "urls",
     "openapi"
   ],
-
   "description": "A Swagger UI plugin that makes URLs in API responses clickable",
   "repository": "github:sillyash/swagger-ui-clickable-links-plugin",
   "homepage": "https://github.com/sillyash/swagger-ui-clickable-links-plugin#readme",
-  "bugs": { "url": "https://github.com/sillyash/swagger-ui-clickable-links-plugin/issues" },
-
+  "bugs": {
+    "url": "https://github.com/sillyash/swagger-ui-clickable-links-plugin/issues"
+  },
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
@@ -28,21 +28,20 @@
     "README.md",
     "LICENSE"
   ],
-
   "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "echo \"No tests specified\" && exit 0",
     "lint": "prettier --check .",
     "format": "prettier --write .",
-    "prepare": "npm run build"
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "preprepare": "npm run lint && npm run format",
+    "prepare": "npm run build",
+    "pretest": "npm run lint && npm run format",
+    "test": "echo \"No tests specified\" && exit 0"
   },
-
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
-
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.23.0",
