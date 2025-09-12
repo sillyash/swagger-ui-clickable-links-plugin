@@ -13,7 +13,10 @@
     "openapi"
   ],
   "description": "A Swagger UI plugin that makes URLs in API responses clickable",
-  "repository": "github:sillyash/swagger-ui-clickable-links-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sillyash/swagger-ui-clickable-links-plugin.git"
+  },
   "homepage": "https://github.com/sillyash/swagger-ui-clickable-links-plugin#readme",
   "bugs": {
     "url": "https://github.com/sillyash/swagger-ui-clickable-links-plugin/issues"
