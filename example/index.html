@@ -13,11 +13,10 @@
   <body>
     <div id="swagger-ui"></div>
 
-    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
-    <!-- TODO : Add plugin URL once released -->
-    <!-- script src="https://unpkg.com/swagger-ui-clickable-links-plugin"></script -->
+  <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+  <script src="./node_modules/swagger-ui-clickable-links/dist/index.umd.js"></script>
 
-    <script type="text/javascript">
+  <script type="text/javascript">
       const OpenAPISpecUrl = 'spec.json';
 
       window.onload = function () {
@@ -28,7 +27,7 @@
           showCommonExtensions: true,
           url: OpenAPISpecUrl,
           plugins: [
-            //SwaggerUIClickableLinksPlugin
+            SwaggerUIClickableLinks
           ],
         });
       };
