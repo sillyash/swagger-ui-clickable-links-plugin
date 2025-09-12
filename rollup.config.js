@@ -32,6 +32,11 @@ export default {
     },
   ],
   plugins: [
+    // Replace process.env.NODE_ENV for UMD build to avoid browser errors
+    replace({
+      preventAssignment: true,
+      'process.env.NODE_ENV': JSON.stringify('production'),
+    }),
     resolve({
       browser: true,
     }),
