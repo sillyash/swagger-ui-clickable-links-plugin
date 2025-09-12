@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "description": "Example usage of swagger-ui-clickable-links-plugin",
   "private": true,
-  "scripts": {
-    "start": "python -m http.server 8080",
-    "serve": "python3 -m http.server 8080"
-  },
   "dependencies": {
-    "swagger-ui-dist": "^5.10.0"
+    "http-server": "^14.1.1"
+  },
+  "scripts": {
+    "start": "http-server ./ -a localhost -p 8000 -c-1"
   }
 }

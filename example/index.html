@@ -4,142 +4,28 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swagger UI Clickable Links Plugin Demo</title>
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://unpkg.com/swagger-ui-dist@5.10.0/swagger-ui.css"
-    />
-    <style>
-      html {
-        box-sizing: border-box;
-        overflow: -moz-scrollbars-vertical;
-        overflow-y: scroll;
-      }
-      *,
-      *:before,
-      *:after {
-        box-sizing: inherit;
-      }
-      body {
-        margin: 0;
-        background: #fafafa;
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3/swagger-ui.css" >
   </head>
   <body>
     <div id="swagger-ui"></div>
+    
+    <script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+    <!-- TODO : Add plugin URL once released -->
+    <!-- script src="https://unpkg.com/swagger-ui-clickable-links-plugin"></script -->
 
-    <script src="https://unpkg.com/swagger-ui-dist@5.10.0/swagger-ui-bundle.js"></script>
-    <script src="../dist/index.umd.js"></script>
+    <script type="text/javascript">
+      const OpenAPISpecUrl = "spec.json";
 
-    <script>
-      // Sample OpenAPI spec with URLs in descriptions and examples
-      const spec = {
-        openapi: '3.0.0',
-        info: {
-          title: 'Clickable Links Demo API',
-          version: '1.0.0',
-          description:
-            'This API demonstrates clickable links functionality. Visit https://swagger.io for more information about OpenAPI specification.',
-        },
-        servers: [
-          {
-            url: 'https://api.example.com/v1',
-            description: 'Production server',
-          },
-        ],
-        paths: {
-          '/users': {
-            get: {
-              summary: 'Get users',
-              description:
-                'Retrieves a list of users. For more information, visit https://developer.example.com/docs/users or check the GitHub repository at https://github.com/example/api-docs',
-              responses: {
-                200: {
-                  description:
-                    'Successful response with user data. Documentation available at https://docs.example.com/users',
-                  content: {
-                    'application/json': {
-                      schema: {
-                        type: 'array',
-                        items: {
-                          type: 'object',
-                          properties: {
-                            id: { type: 'integer' },
-                            name: { type: 'string' },
-                            email: { type: 'string' },
-                            website: {
-                              type: 'string',
-                              description:
-                                "User's website URL like https://johndoe.com",
-                            },
-                          },
-                        },
-                      },
-                      example: [
-                        {
-                          id: 1,
-                          name: 'John Doe',
-                          email: 'john@example.com',
-                          website: 'https://johndoe.com',
-                        },
-                        {
-                          id: 2,
-                          name: 'Jane Smith',
-                          email: 'jane@example.com',
-                          website: 'https://janesmith.dev',
-                        },
-                      ],
-                    },
-                  },
-                },
-              },
-            },
-          },
-          '/posts': {
-            get: {
-              summary: 'Get blog posts',
-              description:
-                'Fetches blog posts. Each post may contain URLs to external resources like https://medium.com/@author/post or https://dev.to/author/post',
-              responses: {
-                200: {
-                  description: 'Array of blog posts',
-                  content: {
-                    'application/json': {
-                      example: {
-                        posts: [
-                          {
-                            title: 'Getting Started',
-                            content:
-                              'Check out our documentation at https://docs.example.com and follow us on https://twitter.com/example',
-                            url: 'https://blog.example.com/getting-started',
-                          },
-                        ],
-                      },
-                    },
-                  },
-                },
-              },
-            },
-          },
-        },
-      };
-
-      window.onload = function () {
-        const ui = SwaggerUIBundle({
-          spec: spec,
-          dom_id: '#swagger-ui',
+      window.onload = function() {
+        SwaggerUIBundle({
           deepLinking: true,
-          presets: [
-            SwaggerUIBundle.presets.apis,
-            SwaggerUIBundle.presets.standalone,
-          ],
+          dom_id: '#swagger-ui',
+          showExtensions: true,
+          showCommonExtensions: true,
+          url: OpenAPISpecUrl,
           plugins: [
-            SwaggerUIBundle.plugins.DownloadUrl,
-            // Add the clickable links plugin
-            SwaggerUIClickableLinksPlugin.default,
-          ],
-          layout: 'StandaloneLayout',
+            //SwaggerUIClickableLinksPlugin
+          ]
         });
       };
     </script>

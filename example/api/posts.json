@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "userId": 1,
+        "title": "Promo",
+        "content": "Check out our website at https://docs.example.com and follow us on https://x.com/example",
+        "url": "https://blog.example.com/"
+    },
+    {
+        "id": 2,
+        "userId": 1,
+        "title": "Getting Started",
+        "content": "Check out our documentation at https://docs.example.com and follow us on https://twitter.com/example",
+        "url": "https://blog.example.com/getting-started"
+    },
+    {
+        "id": 3,
+        "userId": 2,
+        "title": "Welcome",
+        "content": "Welcome to our blog! Visit https://welcome.example.com for more info.",
+        "url": "https://blog.example.com/welcome"
+    }
+]
