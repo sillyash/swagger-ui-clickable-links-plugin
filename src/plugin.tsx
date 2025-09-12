@@ -29,8 +29,7 @@ const ClickableLinksPlugin = (): SwaggerUIPlugin => {
 
           // If content is a string, make links clickable
           if (typeof content === 'string') {
-            const clickableContent = makeLinksClickable(content);
-            return <Original {...props} content={clickableContent} />;
+            return <ClickableResponse {...props} />;
           }
 
           return <Original {...props} />;
@@ -43,8 +42,7 @@ const ClickableLinksPlugin = (): SwaggerUIPlugin => {
           const { source } = props;
 
           if (typeof source === 'string') {
-            const clickableSource = makeLinksClickable(source);
-            return <Original {...props} source={clickableSource} />;
+            return <ClickableResponse {...props} />;
           }
 
           return <Original {...props} />;
