@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 permissions:
-  id-token: write  # Required for OIDC
+  id-token: write # Required for OIDC
   contents: read
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-          
+
       # Ensure npm 11.5.1 or later for trusted publishing
       - name: Install npm
         run: npm install -g npm@latest
@@ -29,7 +29,7 @@ jobs:
         run: npm ci
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_READ_TOKEN }}
-      
+
       # Publish uses OIDC - no token needed
       - name: Publish
         run: npm publish
