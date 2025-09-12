@@ -1,20 +1,9 @@
 {
-  "name": "swagger-ui-clickable-links-plugin",
-  "version": "1.0.0",
+  "name": "swagger-ui-clickable-links",
+  "version": "0.1.0",
   "type": "module",
-  "description": "A Swagger UI plugin that makes URLs in descriptions and examples clickable",
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "echo \"No tests specified\" && exit 0",
-    "lint": "prettier --check .",
-    "format": "prettier --write .",
-    "prepare": "npm run build"
-  },
+  "author": "sillyash",
+  "license": "GPL-3.0",
   "keywords": [
     "swagger-ui",
     "plugin",
@@ -23,20 +12,37 @@
     "urls",
     "openapi"
   ],
-  "author": "sillyash",
-  "license": "GPL-3.0",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sillyash/swagger-ui-clickable-links-plugin.git"
-  },
-  "bugs": {
-    "url": "https://github.com/sillyash/swagger-ui-clickable-links-plugin/issues"
-  },
+
+  "description": "A Swagger UI plugin that makes URLs in API responses clickable",
+  "repository": "github:sillyash/swagger-ui-clickable-links-plugin",
   "homepage": "https://github.com/sillyash/swagger-ui-clickable-links-plugin#readme",
+  "bugs": { "url": "https://github.com/sillyash/swagger-ui-clickable-links-plugin/issues" },
+
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/",
+    "README.md",
+    "LICENSE"
+  ],
+
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "echo \"No tests specified\" && exit 0",
+    "lint": "prettier --check .",
+    "format": "prettier --write .",
+    "prepare": "npm run build"
+  },
+
   "peerDependencies": {
     "react": ">=16.8.0",
     "react-dom": ">=16.8.0"
   },
+
   "devDependencies": {
     "@babel/core": "^7.23.0",
     "@babel/preset-env": "^7.23.0",
@@ -52,11 +58,5 @@
     "rollup": "^4.6.1",
     "tslib": "^2.8.1",
     "typescript": "^5.3.0"
-  },
-  "files": [
-    "dist/",
-    "src/",
-    "README.md",
-    "LICENSE"
-  ]
+  }
 }
