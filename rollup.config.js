@@ -62,7 +62,7 @@ export default {
           fileName: 'index.d.ts',
           source: `import ClickableLinksPlugin from './plugin';
 export default ClickableLinksPlugin;
-export * from './utils';
+export * from './interfaces';
 `,
         });
       },
