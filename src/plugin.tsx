@@ -1,77 +1,44 @@
 import { OriginalComponent, SwaggerUISystem, SwaggerUIPlugin } from './interfaces';
+import { linkifyTextInElement } from './linkify';
+
+// Reusable wrapper class for linkification
+function createLinkifiedWrapper(system: SwaggerUISystem, regex: RegExp) {
+  return class LinkifiedWrapper extends system.React.Component<any> {
+    containerRef: any = null;
+    setContainerRef = (node: any) => { this.containerRef = node; };
+
+    componentDidMount() {
+      if (this.containerRef) {
+        setTimeout(() => linkifyTextInElement(this.containerRef, regex), 0);
+      }
+    }
+    componentDidUpdate() {
+      if (this.containerRef) {
+        setTimeout(() => linkifyTextInElement(this.containerRef, regex), 0);
+      }
+    }
+    render() {
+      const { Original, ...rest } = this.props;
+      return system.React.createElement(
+        'div',
+        { ref: this.setContainerRef },
+        system.React.createElement(Original, rest)
+      );
+    }
+  };
+}
+
 
 const ClickableLinksPlugin = (): SwaggerUIPlugin => {
   return {
     wrapComponents: {
       highlightCode: (Original: OriginalComponent, system: SwaggerUISystem) => {
-        class LinkifiedHighlightCode extends system.React.Component<any> {
-          containerRef: any;
-          constructor(props: any) {
-            super(props);
-            this.containerRef = null;
-            this.setContainerRef = this.setContainerRef.bind(this);
-          }
-
-          setContainerRef(node: any) {
-            this.containerRef = node;
-          }
-
-          componentDidMount() {
-            if (this.containerRef) {
-              setTimeout(() => {
-                if (this.containerRef) {
-                  this.linkifyTextInElement(this.containerRef);
-                }
-              }, 0);
-            }
-          }
-
-          componentDidUpdate() {
-            if (this.containerRef) {
-              setTimeout(() => {
-                if (this.containerRef) {
-                  this.linkifyTextInElement(this.containerRef);
-                }
-              }, 0);
-            }
-          }
-
-          linkifyTextInElement(element: HTMLElement) {
-            const urlRegex = /(https?:\/\/[\S<>\"]+)/g;
-            function processNode(node: Node): void {
-              if (node.nodeType === Node.TEXT_NODE) {
-                const text = node.textContent;
-                if (text && urlRegex.test(text)) {
-                  const temp = document.createElement('div');
-                  temp.innerHTML = text.replace(
-                    urlRegex,
-                    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color: #0066cc; text-decoration: underline;">$1</a>'
-                  );
-                  const fragment = document.createDocumentFragment();
-                  while (temp.firstChild) {
-                    fragment.appendChild(temp.firstChild);
-                  }
-                  node.parentNode?.replaceChild(fragment, node);
-                }
-              } else if (node.nodeType === Node.ELEMENT_NODE && (node as Element).tagName !== 'A') {
-                Array.from(node.childNodes).forEach(child => processNode(child));
-              }
-            }
-            processNode(element);
-          }
-
-          render() {
-            return system.React.createElement(
-              'div',
-              { ref: this.setContainerRef },
-              system.React.createElement(Original, { ...this.props })
-            );
-          }
-        }
-        return LinkifiedHighlightCode;
-      }
+        const regex = RegExp(/https?:\/\/[^\s"'`<>()\[\]{}]+/g);
+        const LinkifiedWrapper = createLinkifiedWrapper(system, regex);
+        return (props: any) => system.React.createElement(LinkifiedWrapper, { Original, ...props });
+      },
     }
-  };
+  }
 };
 
 export default ClickableLinksPlugin;
