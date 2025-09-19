@@ -37,6 +37,12 @@ const ClickableLinksPlugin = (): SwaggerUIPlugin => {
         const LinkifiedWrapper = createLinkifiedWrapper(system, regex);
         return (props: any) => system.React.createElement(LinkifiedWrapper, { Original, ...props });
       },
+
+      curl: (Original: OriginalComponent, system: SwaggerUISystem) => {
+        const regex = RegExp(/https?:\/\/[^\s"'`<>()\[\]{}]+/g);
+        const LinkifiedWrapper = createLinkifiedWrapper(system, regex);
+        return (props: any) => system.React.createElement(LinkifiedWrapper, { Original, ...props });
+      },
     }
   }
 };
