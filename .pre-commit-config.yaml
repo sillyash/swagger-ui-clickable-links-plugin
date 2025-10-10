@@ -10,7 +10,3 @@ repos:
     rev: 0.9.1
     hooks:
     - id: uv-lock
-  - repo: https://github.com/will-rice/prettier-pre-commit
-    rev: v1.0.1
-    hooks:
-    - id: prettier-format
