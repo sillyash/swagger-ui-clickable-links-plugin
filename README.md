@@ -51,7 +51,7 @@ Check the `example/` directory for a complete working example.
 
 ## License
 
-GPL-3.0 - see [LICENSE](LICENSE) for details.
+See [LICENSE](LICENSE) for details.
 
 ## Contributing
 
